@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Complex Results</title>
+</head>
+<body>
+    <h1>Search Complex Results</h1>
+    
+    <p>Query: {{ query }}</p>
+
+    {% if result %}
+        <ul>
+            {% for item in result.results %}
+                <li>{{ item.title }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+</body>
+</html>

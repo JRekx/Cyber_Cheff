@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Information</title>
+</head>
+<body>
+    <h1>Recipe Information</h1>
+    
+    {% if result %}
+        <h2>{{ result.title }}</h2>
+        <p>Preparation Time: {{ result.readyInMinutes }} minutes</p>
+        <p>Servings: {{ result.servings }}</p>
+        <!-- Add more details as needed -->
+    {% else %}
+        <p>Recipe not found.</p>
+    {% endif %}
+</body>
+</html>

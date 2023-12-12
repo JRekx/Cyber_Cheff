@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+ 
+</head>
+<body>
+    <h1>User Profile</h1>
+
+    <!-- Section for Saved Recipes -->
+    <h2>Saved Recipes</h2>
+    <ul>
+        {% for recipe in saved_recipes %}
+            <li>{{ recipe.title }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Section for Saved Ingredients -->
+    <h2>Saved Ingredients</h2>
+    <ul>
+        {% for ingredient in saved_ingredients %}
+            <li>{{ ingredient }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Section for Pictures of Recipes -->
+    <h2>Pictures of Recipes</h2>
+    <!-- Add a form for users to upload pictures -->
+    <form action="/upload_picture" method="post" enctype="multipart/form-data">
+        <label for="recipe_picture">Upload Picture:</label>
+        <input type="file" name="recipe_picture" accept="image/*">
+        <input type="submit" value="Upload">
+    </form>
+    <!-- Display uploaded pictures -->
+    <div>
+        {% for picture in recipe_pictures %}
+            <img src="{{ picture }}" alt="Recipe Picture">
+        {% endfor %}
+    </div>
+
+    <!-- Section for Profile Picture -->
+    <h2>Profile Picture</h2>
+    <!-- Add a form for users to upload their profile picture -->
+    <form action="/upload_profile_picture" method="post" enctype="multipart/form-data">
+        <label for="profile_picture">Upload Profile Picture:</label>
+        <input type="file" name="profile_picture" accept="image/*">
+        <input type="submit" value="Upload">
+    </form>
+    <!-- Display user's profile picture -->
+    {% if profile_picture %}
+        <img src="{{ profile_picture }}" alt="Profile Picture">
+    {% else %}
+        <p>No profile picture uploaded</p>
+    {% endif %}
+
+ 
+</body>
+</html>
